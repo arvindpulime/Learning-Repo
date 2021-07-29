@@ -1,31 +1,16 @@
 
-
-/* .jumbotron{
-
-    background-color: white;
+.jumbotron{
+    background-color: rgb(170, 255, 227);
+    font-size: 38px;
+    font-style: oblique;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
     text-align: center;
-    padding-top: 0;
+    padding-top: 10px ;
     padding-bottom: 10px ;
     margin-bottom: 0;
-    margin-top: 0;
-} */
-.example-spacer {
-    flex: 1 1 auto;
-    text-align: center; 
-    height: 30%;
-    font-size: 55px;
-    
 }
-.jumbotron{
- 
-    background-color: white;
-    text-align: center;
-    padding-top: 0;
-    padding-bottom: 0px ;
-    margin-bottom: 0;
-    margin-top: 0;
-}
-.size{
-    margin-top: 0;
-    height: 120px;
-}
+
+
+
+

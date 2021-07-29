@@ -1,20 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { EditComponent } from './edit/edit.component';
+import { EditComponentComponent } from './edit-component/edit-component.component';
 import { ForgotpswdComponent } from './forgotpswd/forgotpswd.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponentComponent } from './login-component/login-component.component';
 import { LogoutComponent } from './logout/logout.component';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
-  {path:'forgotpassword' , component:ForgotpswdComponent},
-  {path:'login',component:LoginComponent},
-  {path:'edit/:id',component:EditComponent},
-  {path:'signup',component:SignupComponent},
-  {path:'logout',component:LogoutComponent},
-  {path: '', redirectTo: '/login', pathMatch: 'full'},
-  {path: '**', component: LoginComponent}
+ {path: 'forgotpassword',component:ForgotpswdComponent},
+ {path: 'editprofile',component:EditComponentComponent},
+ {path: 'login',component:LoginComponentComponent},
+ {path: 'signup',component:SignupComponent},
+ {path: 'logout',component:LogoutComponent}
+ 
 ];
 
 @NgModule({

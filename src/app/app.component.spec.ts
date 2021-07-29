@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'PsaEmployeeTracker'`, () => {
+  it(`should have as title 'MiniProject'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('PsaEmployeeTracker');
+    expect(app.title).toEqual('MiniProject');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('PsaEmployeeTracker app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('MiniProject app is running!');
   });
 });
