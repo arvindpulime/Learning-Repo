@@ -1,0 +1,122 @@
+# Put main configuration in this file
+# See http://seedstack.org/docs/seed/configuration for more information
+
+logging:
+  level: INFO
+
+application:
+  # Unique identifier of the application accross your organization
+  id: my-web-project
+  # Make sure all your application base packages are listed below
+  basePackages: [ org.generated.project ]
+
+security:
+  # The security configuration realm uses the 'users' section below (replace it with a more useful realm later)
+  # See http://seedstack.org/docs/seed/manual/security/#realms for more information
+  realms: ConfigurationRealm
+  users:
+    # A default 'demo' user is defined with password 'demo'
+    demo: demo
+  web:
+    # The 'urls' section below in used to secure HTTP requests
+    # See http://seedstack.org/docs/seed/manual/security/#http-access-control for more information
+    urls:
+    #   -
+    #     pattern: /api/**
+    #     filters: authcBasic
+
+myConfig:
+    languages: ["Java", "Seedstack","Angular","Html","Kafka"]
+
+
+swagger:
+  # The title of the published API.
+  title: PSA Employee Tracker
+  
+  # The version of the published API.
+  version: V1
+  
+  contactUrl: hello
+  
+  # If true, the Swagger output is pretty printed (false by default).
+  prettyPrint: true    
+  
+web:
+    cors: true   
+
+
+jdbc:
+  datasources:
+    myDatasource:
+      provider: org.seedstack.jdbc.internal.datasource.HikariDataSourceProvider
+      url: jdbc:postgresql://localhost:5432/postgres
+      user: postgres
+      password: Nohithkumar@16
+
+
+jpa:
+  units:
+    myUnit:
+      datasource: myDatasource
+      properties:
+        hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+        hibernate.hbm2ddl.auto: update
+        hibernate.show_sql: true
+
+
+classes:
+  org:
+    generated:
+      project:
+        domain:
+          model:
+            jpaUnit: myUnit
+
+javamail:
+  providers:
+    smtpProvider:
+      mail.transport.protocol: smtp
+      mail.smtp.host: smtp.gmail.com
+      mail.smtp.user: k.sukumarreddy7@gmail.com
+      mail.smtp.port: 888
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+   
+
+
+kafka:
+  # Configured Kafka streams with the name of the stream as key
+  streams:
+    stream1:
+      # Kafka properties for configuring the stream
+      properties:
+        property1: value1
+  consumers:
+    # Configured Kafka consumer with the name of the consumer as key
+    consumer1:
+      # Kafka properties for configuring the consumer
+      properties:
+        #client.id: ${env.KAFKA_CLIENT_ID:'mii-core'}-plant-customer-data-response
+        group.id: consumergroup1
+        bootstrap.servers: ${env.KAFKA_URL:'localhost:9092'}
+        key.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        value.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        auto.offset.reset: earliest
+    consumer2:
+      # Kafka properties for configuring the consumer
+      properties:
+        #client.id: ${env.KAFKA_CLIENT_ID:'mii-core'}-plant-customer-data-response
+        group.id: consumergroup2
+        bootstrap.servers: ${env.KAFKA_URL:'localhost:9092'}
+        key.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        value.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        auto.offset.reset: earliest
+  producers:
+    # Configured Kafka producer with the name of the producer as key
+    producer1:
+      # Kafka properties for configuring the producer
+      properties:
+        bootstrap.servers: ${env.KAFKA_URL:'localhost:9092'}
+        key.serializer: org.apache.kafka.common.serialization.StringSerializer
+        value.serializer: org.apache.kafka.common.serialization.StringSerializer      
+      

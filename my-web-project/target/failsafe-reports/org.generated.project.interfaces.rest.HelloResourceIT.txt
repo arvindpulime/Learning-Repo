@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: org.generated.project.interfaces.rest.HelloResourceIT
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 14.827 sec <<< FAILURE! - in org.generated.project.interfaces.rest.HelloResourceIT
+testHelloWorld(org.generated.project.interfaces.rest.HelloResourceIT)  Time elapsed: 8.276 sec  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<"Hello [World]!"> but was:<"Hello [seedstack]!">
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at org.generated.project.interfaces.rest.HelloResourceIT.testHelloWorld(HelloResourceIT.java:26)
+
