@@ -1,0 +1,125 @@
+.container{
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 20px;
+    text-align: center;
+}
+.jumbotron{
+    background-color: white;
+    text-align: center;
+    padding-top: 0;
+    padding-bottom: 10px ;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.size{
+    margin-top: 0;
+    height: 120px;
+}
+.example-spacer {
+    flex: 1 1 auto;
+    text-align: center; 
+    height: 30%;
+    font-size: 60px;
+}
+.mat-form-field {
+    width: 100%;
+    min-width: 300px;
+    
+  }
+.center{
+
+        width: 100vw;
+        position: relative;
+        margin-left: 25%;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+}
+  mat-card-title{
+        display: flex;
+        justify-content: left;
+      }
+  
+  mat-card-content {
+    display: flex;
+    justify-content: center;
+  }
+  mat-car-actions{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2%;
+  }
+.example-card {
+    max-height: 500px;
+    max-width: 700px;
+    margin-left: 25%;
+
+}
+  .error {
+    padding: 16px;
+    width: 300px;
+    color: white;
+    background-color: red;
+  }
+
+  /* .button {
+    display: flex;
+    justify-content: flex-end;
+  } */
+
+  .field{
+    display:flex;
+   
+    width: 20px;
+    margin-top: 20px;
+    margin-left: 20%;
+    font-size: 15px;
+  }
+  .btn{
+    margin:20px;
+  }
+  .alert{
+    margin: 0%;
+    height:5%;
+    float: right;
+    font-size: 2px;
+    padding: 0;
+  }
+  
+ 
+  .sucess{
+    
+    font-size: 30px;
+    font-style: inherit;
+    font-weight: bolder;
+    margin-top: 5%;
+    margin-bottom: 2%;
+  }
+
+
+  
+  .overlay{
+    display:block;
+    background-color: rgba(0,0,0,0.5);
+    width: 20px;
+    margin-top: 20px;
+    margin-left: 20%;
+    font-size: 15px;
+  }
+
+  button {
+    background-color: #3f51b5;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 15px;
+    height: 40px;
+    font-size: 18px;
+}
+
+
+button:disabled,
+.test[disabled]{
+  border: 1px solid #999999;
+  background-color: #4554a8;
+}

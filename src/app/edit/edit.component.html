@@ -1,0 +1,95 @@
+<div class="jumbotron">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+
+        <li class="active"><a >Edit Profile</a></li>
+        <li><a >Time Entry</a></li>
+        <li><a  >Work Sheet</a></li>
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+        <li><a>Welcome, {{name}}</a></li>
+        <li><a routerLink="/logout" routerLinkActive="active"><span class="glyphicon glyphicon-log-in"></span>
+            Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container" [formGroup]="firstFormGroup">
+    <form (ngSubmit)="onSubmit(myForm)" autocomplete="off" #myForm="ngForm">
+
+      <mat-form-field class="field" appearance="fill">
+        <mat-label>Employee ID</mat-label>
+        <input name="ID" pattern="[0-9]{7}" minlength="7" maxlength="7" matInput placeholder="Enter your Employee ID"
+          required [(ngModel)]="this.data.id.employeeId" readonly>
+
+      </mat-form-field>
+
+      <mat-form-field class="field" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input type="text" name="username" matInput placeholder="Enter your Name" required [(ngModel)]="this.data.name">
+      </mat-form-field>
+
+
+      <mat-form-field class="field" appearance="fill">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="psa@example.com" [formControl]="email" required [(ngModel)]="this.data.email">
+
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+
+      </mat-form-field>
+
+      <mat-form-field class="field" appearance="fill">
+        <mat-label>DOJ</mat-label>
+        <input matInput [matDatepicker]="mydatepicker" [max]="maxDate" placeholder="Select Date Of Joining" name="doj"
+          value="this.data.doj" required [(ngModel)]="this.data.doj">
+
+
+        <mat-datepicker-toggle matSuffix [for]="mydatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #mydatepicker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="field" appearance="fill">
+        <mat-label>Project ID</mat-label>
+
+        <input name="Pid" pattern="[0-9]{5}" minlength="4" maxlength="5" matInput placeholder="Enter your Project ID"
+          required [(ngModel)]="this.data.projectId">
+      </mat-form-field>
+
+      <mat-form-field class="field" appearance="fill">
+        <mat-label>Project Name</mat-label>
+        <input name="pname" matInput placeholder="Enter your Project Name" required [(ngModel)]="this.data.projectname">
+      </mat-form-field>
+
+      <mat-form-field class="field" appearance="fill">
+        <mat-label>Job Role</mat-label>
+        <mat-select name="jobrole" required [(ngModel)]="this.data.jobrole">
+          <mat-option *ngFor="let role of jobrole" [value]="role.value">
+            {{role.viewValue}}
+          </mat-option>
+        </mat-select>
+
+
+      </mat-form-field>
+
+
+      <mat-radio-group class="field radioStyle" (change)="onChange($event)" name="gender" color="primary">
+        <mat-label>Gender : </mat-label>
+        <mat-radio-button checked="true" value="Male"> Male </mat-radio-button>
+        <mat-radio-button value="Female"> Female </mat-radio-button>
+      </mat-radio-group>
+
+
+      <button type="submit" class="button test" mat-raised-button color="primary" [disabled]="!myForm.valid">
+        Update
+      </button>
+
+    </form>
+
+
+
+
+  </div>
+</div>

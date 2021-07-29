@@ -1,0 +1,32 @@
+<div class="jumbotron">
+
+
+    <div class="container">
+
+        <div class="shadow-lg p-3 mb-5 bg-white rounded" style="width: 450px;height: 300px;margin-left: 375px;">
+            <form #f="ngForm" (ngSubmit)="LoginUser(f.value,f)">
+
+                <mat-form-field class="field" appearance="fill">
+                    <mat-label style="font-style: oblique;">Username</mat-label>
+                    <input matInput maxlength="7" minlength="7" pattern="[0-9]{7}" #id="ngModel" name=id
+                        [(ngModel)]="model.id" required>
+                    <mat-icon matSuffix>account_circle</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field class="field" appearance="fill">
+                    <mat-label style="font-style: oblique;">Password</mat-label>
+                    <input [type]="hide ? 'password' : 'text'" matInput pattern="[a-zA-Z][0-9]" maxlength="8"
+                        minlength="6" #password="ngModel" name=password [(ngModel)]="model.password" required>
+                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </mat-form-field>
+                <br>
+                <br>
+                <button type="submit" class="btn btn-success" sytle="">Login</button>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <button class="btn btn-warning" (click)=gotoSignup()>Sign Up</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button class="btn btn-primary" (click)=gotoForgotPSWD()>Forgot Password</button>&nbsp;&nbsp;&nbsp;
+
+            </form>
+        </div>
+    </div>
+</div>

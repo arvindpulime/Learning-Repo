@@ -1,0 +1,131 @@
+<div class="jumbotron">
+
+
+  <mat-horizontal-stepper linear #stepper>
+
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Secret Key Generation</ng-template>
+        <mat-card class="example-card">
+
+          <p *ngIf="redirectflag" class="sucess">
+            Invalid Employee Id Redirecting to SignUp Page
+          </p>
+          <mat-card-title>Step-1</mat-card-title>
+
+          <mat-card-content>
+            <mat-spinner *ngIf="this.showspinner"></mat-spinner>
+            <p>
+              <mat-form-field [ngClass]="this.showspinner == true ? 'overlay' : 'field'">
+                <input type="text" matInput placeholder="Enter Employee ID" formControlName="firstCtrl" minlength="7"
+                  maxlength="7">
+                <mat-error *ngIf="(form1.firstCtrl.invalid && form1.firstCtrl.errors?.required) && 
+            (form1.firstCtrl.dirty || form1.firstCtrl.touched )">
+
+                  Employee Id Required
+                </mat-error>
+
+                <mat-error class="alertext" *ngIf="form1.firstCtrl.invalid && form1.firstCtrl.errors?.minlength">
+
+                  Employee Id must contain 7 digits
+                </mat-error>
+
+              </mat-form-field>
+
+            </p>
+
+
+
+          </mat-card-content>
+          <mat-card-actions>
+            <div>
+
+              <button class=" test" (click)=sendmail(stepper) mat-raised-button
+                [disabled]="!firstFormGroup.valid">Proceed</button>
+            </div>
+          </mat-card-actions>
+        </mat-card>
+
+
+        <!--<button mat-button matStepperNext>Next</button>-->
+
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" label="Reset Password">
+      <form [formGroup]="secondFormGroup">
+        <mat-card style="text-align: center;">
+          <mat-card-title>Step 2</mat-card-title>
+          <mat-card-content>
+            <p>
+              <mat-form-field class="field">
+                <mat-label>Enter Key</mat-label>
+                <input matInput formControlName="secondCtrl" placeholder="Enter Secret Key" maxlength="5" required>
+                <mat-error *ngIf="(form2.secondCtrl.invalid && form2.secondCtrl.errors?.required) && 
+               (form2.secondCtrl.dirty || form2.secondCtrl.touched )">
+
+                  Please Enter Key
+                </mat-error>
+                <mat-error class="alertext" *ngIf="form2.secondCtrl.invalid && form2.secondCtrl.errors?.minlength">
+
+                  Key must contain 5 digits
+                </mat-error>
+
+              </mat-form-field>
+            </p>
+
+            <p>
+              <mat-form-field class="field">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput formControlName="thirdCtrl" placeholder="Password" maxlength="8"
+                  required>
+                <mat-error *ngIf="(form2.thirdCtrl.invalid && form2.thirdCtrl.errors?.required) && 
+            (form2.thirdCtrl.dirty || form2.thirdCtrl.touched )">
+
+                  Please Enter Password
+                </mat-error>
+
+                <mat-error class="alertext" *ngIf="(form2.thirdCtrl.dirty || form2.thirdCtrl.touched ) && 
+             form2.thirdCtrl.invalid && ( form2.thirdCtrl.errors?.minlength 
+             || form2.thirdCtrl.errors?.maxlength)">
+                  Password Must Contain Minimum 6 and Maximum 8 charecters
+                </mat-error>
+              </mat-form-field>
+            </p>
+
+            <p>
+              <mat-form-field class="field">
+                <mat-label>Confirm Password</mat-label>
+                <input type="password" matInput formControlName="fourthCtrl" placeholder="Confirm Password" required>
+
+                <mat-error *ngIf="( form2.fourthCtrl.errors?.required) && 
+            (form2.fourthCtrl.dirty || form2.fourthCtrl.touched )">
+
+                  Please Enter Confirm Password
+                </mat-error>
+
+                <mat-error class="alertext" *ngIf="(form2.fourthCtrl.invalid && form2.fourthCtrl.errors?.mustMatch )">
+                  Password Must Match
+                </mat-error>
+
+              </mat-form-field>
+            </p>
+
+            <p>
+          </mat-card-content>
+          <div>
+            <button class=" test" (click)=validate() mat-button [disabled]="!secondFormGroup.valid">Update</button>
+
+          </div>
+        </mat-card>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p class="sucess">{{pswdresetstatus}}</p>
+      <div>
+        <button mat-button (click)=gotoLogin()>Continue</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+
+</div>
