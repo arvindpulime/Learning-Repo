@@ -14,7 +14,7 @@ interface Role {
   styleUrls: ['./edit.component.css']
 })
 //saiarvind-dev branch changes
-
+//new
 export class EditComponent implements OnInit {
   jobrole: Role[] = [
     { value: 'Associate Consultant', viewValue: 'Associate Consultant' },
